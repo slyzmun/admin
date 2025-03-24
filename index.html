@@ -1,1 +1,107 @@
-SLYZMUN_admin
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SLYZMUN管理后台</title>
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', 'PingFang SC', sans-serif;
+            background-color: white;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            color: #1691cd;
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 18px;
+        }
+
+        .button-container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .btn-item {
+            text-align: center;
+            width: 200px;
+            padding: 15px;
+            border: 2px solid #1691cd;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .btn-item:hover {
+            background-color: #f0faff;
+            transform: translateY(-2px);
+        }
+
+        .btn-link {
+            color: #1691cd;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .btn-remark {
+            display: block;
+            color: #999;
+            font-size: 12px;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>SLYZMUN</h1>
+        <div class="subtitle">网站管理后台</div>
+    </div>
+
+    <div class="button-container">
+        <div class="btn-item">
+            <a href="#" class="btn-link">内容管理</a>
+            <span class="btn-remark">文章/公告发布与编辑</span>
+        </div>
+
+        <div class="btn-item">
+            <a href="#" class="btn-link">用户管理</a>
+            <span class="btn-remark">成员信息与权限设置</span>
+        </div>
+
+        <div class="btn-item">
+            <a href="#" class="btn-link">会议管理</a>
+            <span class="btn-remark">模联会议信息管理</span>
+        </div>
+
+        <div class="btn-item">
+            <a href="#" class="btn-link">文件中心</a>
+            <span class="btn-remark">资料文件归档管理</span>
+        </div>
+
+        <div class="btn-item">
+            <a href="#" class="btn-link">数据统计</a>
+            <span class="btn-remark">网站访问数据分析</span>
+        </div>
+
+        <div class="btn-item">
+            <a href="#" class="btn-link">系统设置</a>
+            <span class="btn-remark">网站参数配置</span>
+        </div>
+    </div>
+</body>
+</html>
