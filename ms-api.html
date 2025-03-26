@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SLYZMUN - 网站数据</title>
+</head>
+
+<body>
+    <h1>SLYZMUN</h1>
+    <h3>网站数据api返回（MS）</h3>
+    <div id="result"></div>
+    <script>
+        // API终结点
+        const apiEndpoint = 'http://www.clarity.ms/export-data/api/v1/project-live-insights';
+        // 令牌
+        const token = 'eyJhbGciOiJSUzI1NiIsImtpZCI6IjQ4M0FCMDhFNUYwRDMxNjdEOTRFMTQ3M0FEQTk2RTcyRDkwRUYwRkYiLCJ0eXAiOiJKV1QifQ.eyJqdGkiOiJmZGU5NmM4My01NzIzLTRkNDItYjM5Ni01MDdjMTAxZTE3ODIiLCJzdWIiOiIyNzI1MTcwMjUwNTE1ODM1Iiwic2NvcGUiOiJEYXRhLkV4cG9ydCIsIm5iZiI6MTc0Mjk1MTY0OSwiZXhwIjo0ODk2NTUxNjQ5LCJpYXQiOjE3NDI5NTE2NDksImlzcyI6ImNsYXJpdHkiLCJhdWQiOiJjbGFyaXR5LmRhdGEtZXhwb3J0ZXIifQ.fMJ3I0yqYEnRAIuhWs14n2DZXzneeqbfG7CsRbDVxd6xO5PGOJr6Njrvkxb9wfp7etRVVqnGVOjWgZ6A_s6uz-04fuL1gSR2ntdU8hCIqcnSSq12DZimoJgEU0m-RpcRz64ZdTBqdn6iZVeZ_nvMH14lk_Wee6YWm3UVNDtkrE6YBqDU9icvQMvEkUkQvvu6GmxFEbx2ozrmYNYoomcMIcQ5OaI7As9jumw3HfwAJS2igq4G_0CnNXEVmoMP6PDeVeeAd-HTdGVhKVG0RTozojtdnG2uf4_3sU0GXsEvo99f799FRkwz0saZjTIL2rdWhnldoP7VnMXJtL9e1RghWg';
+
+        // 设置请求头，包含令牌进行身份验证
+        const headers = {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+        };
+
+        // 发起fetch请求
+        fetch(apiEndpoint, {
+            method: 'GET',
+            headers: headers
+        })
+           .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+           .then(data => {
+                // 获取结果展示的div元素
+                const resultDiv = document.getElementById('result');
+                // 将数据转换为字符串并显示在页面上
+                resultDiv.textContent = JSON.stringify(data, null, 2);
+            })
+           .catch(error => {
+                console.error('There has been a problem with your fetch operation:', error);
+                // 也可以在页面上显示错误信息
+                const resultDiv = document.getElementById('result');
+                resultDiv.textContent = `错误: ${error.message}`;
+            });
+    </script>
+</body>
+
+</html>
